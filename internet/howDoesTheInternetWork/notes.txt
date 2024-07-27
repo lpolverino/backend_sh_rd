@@ -1,0 +1,61 @@
+# Que es el internet
+  Es una Red Global de computadoras que se comunican mediante protocolos estandarizados
+  Resultado de la ARPNET: una red que pueda sobrevivir un ataque nuclear, mandando bloques por todos lados
+  Creado a partir de varias redes independientes, sin control, puro distribuido y sin discrimiacion de implementacion
+  La idea es que simpre haya conexion entre dos puntos de la red y compartir informacion
+
+#Cables y Wifi
+  Los paquetes (bits) dentro del internet se mueven por varios metodos
+  #Electricidad: Pensar como dos switch conectados al mismo cable. Para mandar varios del mismo valor usamos un reloj y definimos el ancho de banda. Los cables de cobre no tienen mucho largo por la perdida
+  #light: Mas rapido que el electrico, la velocidad de luz, no pierde datos por distancia y se puede mandar varios bits en el medio. Son dificiles de usar por eso se usan ma que nada en los cables interoceanicos
+  #Wifi: señales de radios para mandar bits. Las maquinas deben de encodear y desencodear estas señales para pasarla a bits. Pero no cubre mucha distancia.
+  El internet se compone del uso de todos estos mecanismos.
+
+#IP y DNS
+  #IP:Creado por Vint Cerf para hacer que se aposible la comunicacion en la internet. Todas los dispositivos en el internet tienen una direccion. Entonces se sigue un protocolo para lograr la comunicacion, aka Iternet Protocol.
+    Son un grupo de numeros dividos jerarquicamente que tienen un traducion limpia a binario (32 bits). 
+         255.      255.      253.      222
+      11111111  11111111  11111101  11111111
+      Country     Region  Subnetwork  device
+    v4: 4 Billiones de direcciones (32 bits)
+    v6: 340 Undecilliones de Direcciones (128 bits)
+  #DNS: asocia nombres (urls) a IP, y se traducen a la hora de usarlas (son grupos de servidores que se preguntan quien tiene ese nombre)
+    Son conentadas mediante sistemas distribuidos jerarquicos. SOn publicos y esos lo vuelven vulnearbles a ataques(DNS SPOOFING)
+Ambos son sistemas escalables para garantizar el crecimiento del internet
+
+#Paquestes, Routing, y Fiabilidad
+  Los paquetes que se mandan entre dos computadoras no tienen por que seguir un camino prefijado, pueden incluso cambiar en la marcha
+  Cada vex que un paquete vaya de una computadora a otra, el camino puede ser distinto al anterior, esto puede ser causado por ejemplo por el trafico de la Red
+  La informacion se divide en distintos paquetes, que se envian de forma separada y es resamblado en el la maquina destinataria. Los routers actuan como manejadores del trafico para que este proceso vaya Bien
+  Cada router mantiene una tabla con la forma mas "barata" para llegar a un destino. Esto lo hace Fault Tolerant y logra la fidelidad.
+  Para lograr completamente la fidelidad existe el protocolo TCP. Este indica a la fuente que paquetes llegaron al destino y si esta todo joya se notifica al emisor. SIno no lo hara y se reembiara los faltantes.
+  Este protocolo es bastante scalable.
+
+#HTTP y HTML
+ #HTTP: es el porocolo estandarizado de como se envian las paginas web dentro del internet
+  GET pide un resource de un serverl
+ #HTML: es devuleto generalmente de los request a los servers, esto es el lenguage que le dice al web browser como se ve una pagina.
+
+  Los videos/imagens son recursos independientes de las paginas web y deben de ser pedidos individualmente. Esto hace que la carga sea mas lenta.
+  Ademas Existen la forma de enviar los datos al servidos con el methodo POST. (por ejemplo el login). Ademas se usan cookies para mejorar la comunicacion entre el cliente y servidor.
+
+  COmo es el sistema es de dominio publico, hace facil las explotaciones y vulnerabilidades.
+    Por eso HTTP hace la conexion en un canal seguro, con SSL Y TSL. Y generan el protocolo HTTPS
+    Cuando te conectas a una pagina, esta devuelve un certificado digital que prueba que es la pagina que estans intentado entrear. Estas estan validads por authoridades certificantes.
+  
+#Ecrypcion y Claves Publicas
+  Mandamos infromacion sencible, por eso necesitamos encryptarla y luego desemcryptalar.
+  Tnemos el mensaje encryptado y una llave para desencryptarla.
+  Too hard: muchas posibilidades que probarar.
+  Las llaves son de >256 bits. lo que hacen que la foruza bruta se vuelva muy complicadad.
+  Symetric: Si ambas partes tienen la misma llave para encryptar y desencryptar. debe de ser acordada entre los participantes en privado, lo cual es muy incoveniente
+  Asymetric: La llave para encryptar es distinta a la de desencryptar. La Public, puede encryptarla pero solo la privada puede desencryptarla
+  SSL Y TSL usa estos metodos para protegernos cuando navegamos el internet
+
+#Cybersecurity Y Crimen.
+  Cybersecurity: las acciones para protegernos de los criminales que actuan con los dispositivos del internet.
+  Explotan vulnerabilidades de SW y HW o por las decisiones intencionales de las viticimas.
+    Virus: Ejecutable instalado de forma intencional que se expande a otros dispositivos.
+    DDoS: cuando muchos usuarios niegan los servicios de un servidor tapandolo de solicitudes.
+    Phising: enviando muchos emails que terminan robando la informacion haciendo pasasrle por la pagina legitima
+    
